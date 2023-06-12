@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
   workflow_dispatch:
 
 jobs:
@@ -21,7 +22,6 @@ jobs:
 
       - name: Build
         run: |
-          cd canadian-fires
           npm i
           npm run build
           npm run export
@@ -30,4 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./canadian-fires/out
+          publish_dir: ./out
