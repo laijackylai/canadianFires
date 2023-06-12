@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const UI = () => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden"
+  }, [])
+
   const [searchMethod, setSearchMethod] = useState<string>("Absolute");
   const [searchInput, setSearchInput] = useState<string>("");
   const [showData, setShowData] = useState(false);
@@ -22,8 +26,6 @@ const UI = () => {
   const search = () => {
 
   }
-
-  document.body.style.overflow = "hidden"
 
   return (
     <div>
