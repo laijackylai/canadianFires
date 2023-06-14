@@ -87,7 +87,7 @@ def search_dataframe_optimistic(query, dataframe):
         max_count = max(result_counts.values())
         result_indices = [idx for idx,
                           count in result_counts.items() if count == max_count]
-        return search_results.loc[result_indices, ['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE',  'CAUSE', 'SIZE_HA', 'OUT_DATE']]
+        return search_results.loc[result_indices, ['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE',  'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY']]
     else:
         return pd.DataFrame(columns=['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE', 'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY'])
 
@@ -186,6 +186,9 @@ def load_data():
 
 
 def is_date(date_str):
+    '''
+    check whether string is date
+    '''
     try:
         date_parser.parse(date_str)
         return True
@@ -238,7 +241,7 @@ if __name__ == "__main__":
 
     # # Replace province codes with province names, ignoring the ones not found
     # df['PROVINCE_CODE'] = [province_mapping.get(code, code)
-    #                        for code in df['PROVINCE_CODE']]
+    #                        for code in df['SRC_AGENCY']]
 
     # # Preprocess the dates
     # df['YEAR'] = pd.to_numeric(
@@ -276,8 +279,19 @@ if __name__ == "__main__":
     # df['text'] = df['text'].apply(lambda x: ' '.join(
     #     [word.lower() for word in word_tokenize(x)]))
 
+    # conn = sqlite3.connect('./ml/nltk.db')
+
+    # # Write the DataFrame to a table in the database
+    # df[['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE',  'CAUSE', 'SIZE_HA', 'OUT_DATE',
+    #     'YEAR', 'MONTH', 'DAY', 'text']].to_sql('fire', conn, if_exists='replace', index=False)
+
+    # conn.close()
+
+    # print('done')
+    # exit()
+
     # * load data from db
-    conn = sqlite3.connect('./ml/data.db')
+    conn = sqlite3.connect('./ml/nltk.db')
 
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM nltk')
@@ -318,7 +332,7 @@ if __name__ == "__main__":
 
     # * Display the results
     if not results.empty:
-        conn = sqlite3.connect('./ml/data.db')
+        conn = sqlite3.connect('./ml/query.db')
         results.to_sql('query', conn, if_exists='replace', index=False)
         conn.close()
         print('success')

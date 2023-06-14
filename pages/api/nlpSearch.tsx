@@ -44,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         fileMustExist: true,
         // verbose: console.log
       }
-      const db = new Database('./ml/data.db', dbOptions);
+      const db = new Database('./ml/query.db', dbOptions);
       db.pragma('journal_mode = WAL');
 
       const stmt = db.prepare('SELECT * FROM query')
