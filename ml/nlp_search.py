@@ -87,9 +87,9 @@ def search_dataframe_optimistic(query, dataframe):
         max_count = max(result_counts.values())
         result_indices = [idx for idx,
                           count in result_counts.items() if count == max_count]
-        return search_results.loc[result_indices, ['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE',  'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY']]
+        return search_results.loc[result_indices, ['ID', 'DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE',  'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY']]
     else:
-        return pd.DataFrame(columns=['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE', 'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY'])
+        return pd.DataFrame(columns=['ID', 'DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE', 'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY'])
 
 
 def search_dataframe_absolute(query, dataframe):
@@ -110,7 +110,7 @@ def search_dataframe_absolute(query, dataframe):
     for word in preprocessed_query:
         search_results = search_results[search_results['text'].str.contains(
             word, case=False)]
-    return search_results[['DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE', 'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY']]
+    return search_results[['ID', 'DATE', 'PROVINCE_CODE', 'LATITUDE', 'LONGITUDE', 'CAUSE', 'SIZE_HA', 'OUT_DATE', 'YEAR', 'MONTH', 'DAY']]
 
 
 def match_dates(uq):
@@ -290,18 +290,24 @@ if __name__ == "__main__":
     # print('done')
     # exit()
 
-    # * load data from db
-    conn = sqlite3.connect('./ml/nltk.db')
+    # * load data from sqlite db
+    # conn = sqlite3.connect('./ml/nltk.db')
 
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM nltk')
-    rows = cursor.fetchall()
+    # cursor = conn.cursor()
+    # cursor.execute('SELECT * FROM nltk')
+    # rows = cursor.fetchall()
 
-    columns = [desc[0] for desc in cursor.description]
-    df = pd.DataFrame(rows, columns=columns)
+    # columns = [desc[0] for desc in cursor.description]
+    # df = pd.DataFrame(rows, columns=columns)
 
-    cursor.close()
-    conn.close()
+    # cursor.close()
+    # conn.close()
+
+    # * load data from file
+    file_path = './ml/nltk.csv'
+
+    # Read the CSV file into a DataFrame
+    df = pd.read_csv(file_path, delimiter=',', engine='python')
 
     # * User input query
     # Parse command-line arguments
@@ -330,11 +336,16 @@ if __name__ == "__main__":
     if strategy == "Absolute":
         results = search_dataframe_absolute(user_query, df)
 
+    # * write results in csv
+    results.to_csv('ml/query.csv', index=False)
+
+    # * write results in superbase
+
     # * Display the results
     if not results.empty:
-        conn = sqlite3.connect('./ml/query.db')
-        results.to_sql('query', conn, if_exists='replace', index=False)
-        conn.close()
+        # conn = sqlite3.connect('./ml/query.db')
+        # results.to_sql('query', conn, if_exists='replace', index=False)
+        # conn.close()
         print('success')
     else:
         print("failed")
