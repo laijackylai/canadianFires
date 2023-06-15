@@ -1,6 +1,8 @@
 import { exec } from 'child_process';
 import { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
 import Database from 'better-sqlite3';
+
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -31,9 +33,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (typeof strategy != 'string' || typeof query != 'string') {
       throw new Error("Invalid arguments");
-
     }
 
+    // * old python way
     const args = ["--strategy", strategy, "--query", query]
 
     const scriptPath = 'ml/nlp_search.py';

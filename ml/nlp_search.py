@@ -8,7 +8,6 @@ import spacy
 import argparse
 import sqlite3
 from dateutil import parser as date_parser
-import sqlite3
 
 
 def lemmatize(text):
@@ -336,8 +335,10 @@ if __name__ == "__main__":
     if strategy == "Absolute":
         results = search_dataframe_absolute(user_query, df)
 
-    # * write results in csv
-    results.to_csv('ml/query.csv', index=False)
+    # * write results
+    # results.to_csv('ml/query.csv', index=False)
+    conn = sqlite3.connect('ml/query.db')
+    results.to_sql('query', conn, if_exists='replace', index=False)
 
     # * write results in superbase
 
