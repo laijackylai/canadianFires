@@ -12,7 +12,7 @@ const UI: NextPage<Props> = () => {
     document.body.style.overflow = "hidden"
   }, [])
 
-  const { queryData, setQueryData } = useQueryDatContext()
+  const { queryData, setQueryData, layer, setLayer } = useQueryDatContext()
 
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchMethod, setSearchMethod] = useState<string>("Absolute");
@@ -35,6 +35,7 @@ const UI: NextPage<Props> = () => {
 
   const search = async () => {
     setLoading(true)
+    setQueryData([])
     const queryParams = new URLSearchParams(
       [
         ["strategy", '"' + searchMethod + '"'],
@@ -56,6 +57,8 @@ const UI: NextPage<Props> = () => {
       setLoading(false)
     }
   }
+
+  // TODO: layer context
 
   return (
     <div>
@@ -98,6 +101,29 @@ const UI: NextPage<Props> = () => {
               onClick={() => setSearchMethod("Optimistic")}
             >
               Optimistic
+            </button>
+          </div>
+        </div>
+        {/* layer */}
+        <div className='flex flex-row'>
+          <div className="rounded-xl shadow-md items-center">
+            <button
+              className={`p-3 text-white rounded-s-xl ${layer === "icon" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
+              onClick={() => setLayer("icon")}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </button>
+            <button
+              className={`p-3 text-white rounded-e-xl ${layer === "heat" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
+              onClick={() => setLayer("heat")}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+              </svg>
             </button>
           </div>
         </div>
