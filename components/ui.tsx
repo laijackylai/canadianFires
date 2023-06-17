@@ -12,7 +12,7 @@ const UI: NextPage<Props> = () => {
     document.body.style.overflow = "hidden"
   }, [])
 
-  const { queryData, setQueryData, layer, setLayer, lat, lon } = useQueryDatContext()
+  const { queryData, setQueryData, layer, setLayer, lat, setLat, lon, setLon, setPickedFire, showPred, setShowPred, setPredictedFire } = useQueryDatContext()
 
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchMethod, setSearchMethod] = useState<string>("Absolute");
@@ -20,12 +20,9 @@ const UI: NextPage<Props> = () => {
   const [loading, setLoading] = useState(false);
   const [predicting, setPredicting] = useState(false);
 
-  const [showPred, setShowPred] = useState(false)
-  const [predLat, setPredLat] = useState(lat)
-  const [predLon, setPredLon] = useState(lon)
-  const [predYear, setPredYear] = useState("")
-  const [predMonth, setPredMonth] = useState("")
-  const [predDay, setPredDay] = useState("")
+  const [predYear, setPredYear] = useState(new Date().getFullYear().toString())
+  const [predMonth, setPredMonth] = useState((new Date().getMonth() + 1).toString())
+  const [predDay, setPredDay] = useState(new Date().getDate().toString())
   const [predMeanTemp, setPredMeanTemp] = useState("")
   const [predMeanRain, setPredMeanRain] = useState("")
   const [predMeanSnow, setPredMeanSnow] = useState("")
@@ -70,10 +67,34 @@ const UI: NextPage<Props> = () => {
     }
   }
 
-  const predict = () => {
+  const predict = async () => {
     setPredicting(true)
-    console.log('predict')
-    setPredicting(false)
+    const queryParams = new URLSearchParams(
+      [
+        ["lat", lat],
+        ["lon", lon],
+        ["year", predYear],
+        ["month", predMonth],
+        ["day", predDay],
+        ["meanTemp", predMeanTemp],
+        ["meanRain", predMeanRain],
+        ["meanSnow", predMeanSnow],
+        ["ecoZone", ecoZone]
+      ]
+    );
+    try {
+      const response: AxiosResponse = await axios.get(`/api/pred?${queryParams}`);
+      const { result, data } = response.data
+      if (result.trim() === "success") {
+        setPredictedFire(data[0])
+        setPredicting(false)
+      } else {
+        setPredicting(false)
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setPredicting(false)
+    }
   }
 
   return (
@@ -109,12 +130,14 @@ const UI: NextPage<Props> = () => {
             <button
               className={`p-3 text-white rounded-s-xl ${searchMethod === "Absolute" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
               onClick={() => setSearchMethod("Absolute")}
+              disabled={loading}
             >
               Absolute
             </button>
             <button
               className={`p-3 text-white rounded-e-xl ${searchMethod === "Optimistic" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
               onClick={() => setSearchMethod("Optimistic")}
+              disabled={loading}
             >
               Optimistic
             </button>
@@ -127,18 +150,18 @@ const UI: NextPage<Props> = () => {
               className={`p-3 text-white rounded-s-xl ${layer === "icon" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
               onClick={() => setLayer("icon")}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
             </button>
             <button
               className={`p-3 text-white rounded-e-xl ${layer === "heat" ? "bg-gray-600" : "bg-gray-500 bg-opacity-75"}`}
               onClick={() => setLayer("heat")}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
               </svg>
             </button>
           </div>
@@ -166,34 +189,33 @@ const UI: NextPage<Props> = () => {
           {
             queryData && queryData.length > 0 ? (
               <div className="overflow-auto" style={{ maxHeight: '87.5vh' }}>
-                {queryData.map((d: any, i: number) => (
-                  <div key={i}>
-                    <table className="table-auto border-collapse border">
-                      <thead>
-                        <tr>
-                          <th className="border px-4 py-2">Date</th>
-                          <th className="border px-4 py-2">Province Code</th>
-                          <th className="border px-4 py-2">Latitude</th>
-                          <th className="border px-4 py-2">Longitude</th>
-                          <th className="border px-4 py-2">Cause</th>
-                          <th className="border px-4 py-2">Size (HA)</th>
+                <div>
+                  <div className="mb-3">Total no. of rows: {queryData.length}</div>
+                  <table className="table-auto border-collapse border">
+                    <thead className="sticky top-0 bg-gray-200">
+                      <tr>
+                        <th className="border px-4 py-2">Date</th>
+                        <th className="border px-4 py-2">Province Code</th>
+                        <th className="border px-4 py-2">Latitude</th>
+                        <th className="border px-4 py-2">Longitude</th>
+                        <th className="border px-4 py-2">Cause</th>
+                        <th className="border px-4 py-2">Size (HA)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {queryData.map((d: any, i: number) => (
+                        <tr key={i}>
+                          <td className="border px-4 py-2">{d.DATE}</td>
+                          <td className="border px-4 py-2">{d.PROVINCE_CODE}</td>
+                          <td className="border px-4 py-2">{d.LATITUDE}</td>
+                          <td className="border px-4 py-2">{d.LONGITUDE}</td>
+                          <td className="border px-4 py-2">{d.CAUSE}</td>
+                          <td className="border px-4 py-2">{d.SIZE_HA}</td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {queryData.map((d: any, i: number) => (
-                          <tr key={i}>
-                            <td className="border px-4 py-2">{d.DATE}</td>
-                            <td className="border px-4 py-2">{d.PROVINCE_CODE}</td>
-                            <td className="border px-4 py-2">{d.LATITUDE}</td>
-                            <td className="border px-4 py-2">{d.LONGITUDE}</td>
-                            <td className="border px-4 py-2">{d.CAUSE}</td>
-                            <td className="border px-4 py-2">{d.SIZE_HA}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                ))}
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             ) : (
               <div>No data now...</div>
@@ -203,16 +225,19 @@ const UI: NextPage<Props> = () => {
       </div>
       {!showPred &&
         <button
-          className="z-10 absolute top-24 left-7 flex flex-row gap-3 p-3 bg-gray-500 opacity-75 rounded-xl shadow-md items-center"
-          onClick={() => setShowPred(true)}
+          className="text-white z-10 absolute top-20 left-7 flex flex-row gap-3 p-3 bg-gray-500 opacity-75 rounded-xl shadow-md items-center"
+          onClick={() => {
+            setShowPred(true)
+            setPickedFire(undefined)
+          }}
         >
           <div>Predict Fires in ON</div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
         </button>
       }
-      <div className={`z-10 absolute top-24 left-7 flex flex-col gap-3 p-5 bg-gray-500 opacity-75 rounded-xl shadow-md transform transition-transform duration-500 ${showPred ? 'translate-x-0' : ' -translate-x-96'}`}>
+      <div className={`text-white z-10 absolute top-20 left-7 flex flex-col gap-3 p-5 bg-gray-500 opacity-75 rounded-xl shadow-md transform transition-transform duration-500 ${showPred ? 'translate-x-0' : ' -translate-x-96'}`}>
         <div className="flex flex-row gap-2">
           <button onClick={() => setShowPred(false)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white">
@@ -221,71 +246,95 @@ const UI: NextPage<Props> = () => {
           </button>
           <div>Predict fires in Ontario</div>
         </div>
-        <input
-          type="text"
-          placeholder='Latitude'
-          className="p-3 rounded-xl text-black w-50"
-          value={lat}
-          // onChange={e => setPredLat(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Longitude'
-          className="p-3 rounded-xl text-black w-50"
-          value={lon}
-          // onChange={e => setPredLon(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Year'
-          className="p-3 rounded-xl text-black w-50"
-          value={predYear}
-          onChange={e => setPredYear(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Month'
-          className="p-3 rounded-xl text-black w-50"
-          value={predMonth}
-          onChange={e => setPredMonth(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Day'
-          className="p-3 rounded-xl text-black w-50"
-          value={predDay}
-          onChange={e => setPredDay(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Mean Temperature'
-          className="p-3 rounded-xl text-black w-50"
-          value={predMeanTemp}
-          onChange={e => setPredMeanTemp(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Mean Precipitation'
-          className="p-3 rounded-xl text-black w-50"
-          value={predMeanRain}
-          onChange={e => setPredMeanRain(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <input
-          type="text"
-          placeholder='Mean Snowfall'
-          className="p-3 rounded-xl text-black w-50"
-          value={predMeanSnow}
-          onChange={e => setPredMeanSnow(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
-        />
-        <div className="relative flex flex-row items-center gap-3">
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Lat: </div>
+          <input
+            type="text"
+            placeholder='Latitude'
+            className="p-3 rounded-xl text-black w-50"
+            value={lat}
+            onChange={e => setLat(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Lon: </div>
+          <input
+            type="text"
+            placeholder='Longitude'
+            className="p-3 rounded-xl text-black w-50"
+            value={lon}
+            onChange={e => setLon(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Year: </div>
+          <input
+            type="text"
+            placeholder='Year'
+            className="p-3 rounded-xl text-black w-50"
+            value={predYear}
+            onChange={e => setPredYear(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Month: </div>
+          <input
+            type="text"
+            placeholder='Month'
+            className="p-3 rounded-xl text-black w-50"
+            value={predMonth}
+            onChange={e => setPredMonth(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Day: </div>
+          <input
+            type="text"
+            placeholder='Day'
+            className="p-3 rounded-xl text-black w-50"
+            value={predDay}
+            onChange={e => setPredDay(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Mean Temp: </div>
+          <input
+            type="text"
+            placeholder='Mean Temperature'
+            className="p-3 rounded-xl text-black w-50"
+            value={predMeanTemp}
+            onChange={e => setPredMeanTemp(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Mean Pre: </div>
+          <input
+            type="text"
+            placeholder='Mean Precipitation'
+            className="p-3 rounded-xl text-black w-50"
+            value={predMeanRain}
+            onChange={e => setPredMeanRain(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center justify-between">
+          <div>Mean Snow: </div>
+          <input
+            type="text"
+            placeholder='Mean Snowfall'
+            className="p-3 rounded-xl text-black w-50"
+            value={predMeanSnow}
+            onChange={e => setPredMeanSnow(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { predict() } }}
+          />
+        </div>
+        <div className="relative flex flex-row items-center gap-3 justify-between">
           <div>Eco Zone: </div>
           <select
             className="block appearance-none bg-white text-black py-2 px-4 pr-8 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -298,21 +347,9 @@ const UI: NextPage<Props> = () => {
               </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg
-              className="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 7l-5 5-5-5h10zm0 6l-5-5h10l-5 5z"
-              />
-            </svg>
-          </div>
         </div>
         <button
-          className="p-3 text-white bg-gray-400 bg-opacity-75 rounded-xl w-fit"
+          className="p-3 text-white bg-gray-400 bg-opacity-75 rounded-xl w-fit self-end"
           onClick={predict}
           disabled={predicting}
         >

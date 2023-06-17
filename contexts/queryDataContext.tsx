@@ -9,7 +9,12 @@ interface IQueryContextProps {
   setLat: (user: any) => void;
   lon: any;
   setLon: (user: any) => void;
-
+  pickedFire: any;
+  setPickedFire: (user: any) => void;
+  showPred: any;
+  setShowPred: (user: any) => void;
+  predictedFire: any;
+  setPredictedFire: (user: any) => void;
 }
 
 export const QueryContext = React.createContext<IQueryContextProps>({
@@ -21,6 +26,12 @@ export const QueryContext = React.createContext<IQueryContextProps>({
   setLat: () => { },
   lon: {},
   setLon: () => { },
+  pickedFire: {},
+  setPickedFire: () => { },
+  showPred: {},
+  setShowPred: () => { },
+  predictedFire: {},
+  setPredictedFire: () => { },
 });
 
 export const QueryContextProvider = (props: any) => {
@@ -28,6 +39,9 @@ export const QueryContextProvider = (props: any) => {
   const [layer, setLayer] = useState("icon")
   const [lat, setLat] = useState(0)
   const [lon, setLon] = useState(0)
+  const [pickedFire, setPickedFire] = useState<any>(undefined)
+  const [showPred, setShowPred] = useState(false)
+  const [predictedFire, setPredictedFire] = useState<any>(undefined)
 
   return (
     <QueryContext.Provider
@@ -40,6 +54,12 @@ export const QueryContextProvider = (props: any) => {
         setLat: setLat,
         lon: lon,
         setLon: setLon,
+        pickedFire: pickedFire,
+        setPickedFire: setPickedFire,
+        showPred: showPred,
+        setShowPred: setShowPred,
+        predictedFire: predictedFire,
+        setPredictedFire: setPredictedFire,
       }}
     >
       {props.children}
