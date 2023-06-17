@@ -3,11 +3,12 @@ import StaticMap from 'react-map-gl';
 import DeckGL from '@deck.gl/react/typed';
 import { HeatmapLayer, IconLayer } from 'deck.gl/typed';
 import { useQueryDatContext } from '@/contexts';
+import Tooltip from './tooltip';
 
 const DeckGLMap: React.FC = () => {
   const mapboxApikey = process.env.NEXT_PUBLIC_MAPBOX_APIKEY
 
-  const { queryData, layer } = useQueryDatContext()
+  const { queryData, layer, setLat, setLon } = useQueryDatContext()
 
   useEffect(() => {
     if (queryData.length <= 0) return
@@ -40,14 +41,15 @@ const DeckGLMap: React.FC = () => {
           },
         },
         getPosition: (d) => [d.LONGITUDE, d.LATITUDE],
-        getSize: (d) => d.SIZE_HA / 100,
+        getSize: (d) => d.SIZE_HA / 500,
         sizeMinPixels: 10,
         sizeMaxPixels: 75,
         sizeScale: 500,
-        onClick: (info) => {
-          const pickedObject = info.object;
-          if (pickedObject) {
+        onClick: (pickingInfo, event) => {
+          if (pickingInfo && pickingInfo.object) {
+            setPickedFire(pickingInfo.object)
           } else {
+            setPickedFire(undefined)
           }
         },
       });
@@ -56,6 +58,14 @@ const DeckGLMap: React.FC = () => {
   }, [queryData, layer]);
 
   const [layers, setLayers] = useState<any[]>([]);
+  const [pickedFire, setPickedFire] = useState<any>(undefined)
+
+  const handleMapClick = (event: any) => {
+    const lon = event.coordinate[0]
+    const lat = event.coordinate[1]
+    setLat(lat)
+    setLon(lon)
+  }
 
   return (
     <div className='w-full h-screen'>
@@ -69,31 +79,16 @@ const DeckGLMap: React.FC = () => {
         }}
         controller={true}
         layers={layers}
+        onClick={handleMapClick}
       >
         <StaticMap
           mapboxAccessToken={mapboxApikey}
           mapStyle="mapbox://styles/mapbox/light-v10"
         />
       </DeckGL>
+      {pickedFire && <Tooltip data={pickedFire} setPickedFire={setPickedFire} />}
     </div>
   );
 };
-
-const causeMap = (c: string) => {
-  switch (c) {
-    case 'u':
-      return 'Unknow Cause'
-    case 'l':
-      return 'Lighting'
-    case 'h':
-      return 'Human'
-    case 'h-pb':
-      return 'Prescribed burn (human caused)'
-    case 're':
-      return 'Reburn'
-    default:
-      break;
-  }
-}
 
 export default DeckGLMap;

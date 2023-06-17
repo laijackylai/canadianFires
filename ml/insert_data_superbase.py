@@ -16,7 +16,7 @@ with open('./nltk.csv', 'r') as file:
             next(reader)
             
             for row in reader:
-              if(int(row[0]) > 132514):
+              if(int(row[0]) > 264501):
                 obj = {
                   "ID": row[0],
                   "DATE": row[1],
