@@ -349,7 +349,7 @@ const UI: NextPage<Props> = () => {
           </select>
         </div>
         <button
-          className="p-3 text-white bg-gray-400 bg-opacity-75 rounded-xl w-fit self-end"
+          className="p-3 text-white bg-gray-400 bg-opacity-75 rounded-xl w-fit"
           onClick={predict}
           disabled={predicting}
         >

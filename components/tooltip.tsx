@@ -17,9 +17,27 @@ const Tooltip: React.FC<Props> = ({ data, setPickedFire }) => {
       <div>Longitude: {data['LONGITUDE']}</div>
       <div>Cause: {causeMap(data['CAUSE'])}</div>
       <div>Size in HA: {data['SIZE_HA']}</div>
+      {data['FIRE_TYPE'] && <div>Fire type: {fireTypeMap(data['FIRE_TYPE'])}</div>}
       <div>Out date: {data['OUT_DATE'] === undefined ? "Unknown" : data['OUT_DATE']}</div>
     </div>
   )
+}
+
+const fireTypeMap = (t: string) => {
+  switch (t) {
+    case 'FIRE_TYPE_Fire':
+      return 'Fire'
+    case 'FIRE_TYPE_IFR':
+      return 'Initial Attack Fire'
+    case 'FIRE_TYPE_OFR':
+      return 'Out of Control Fire'
+    case 'FIRE_TYPE_PB':
+      return 'Prescribed Burn'
+    case 'FIRE_TYPE_Prescribed Burn':
+      return 'Prescribed Burn'
+    default:
+      return 'Fire'
+  }
 }
 
 const causeMap = (c: string) => {
