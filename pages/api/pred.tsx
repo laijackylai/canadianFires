@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Database from 'better-sqlite3';
+import axios from 'axios';
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -25,6 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const { lat, lon, year, month, day, meanTemp, meanRain, meanSnow, ecoZone } = req.query;
 
+
     if (!lat || !lon || !year || !month || !day || !meanTemp || !meanRain || !meanSnow || !ecoZone) {
       throw new Error('Invalid arguments');
     }
@@ -33,35 +35,56 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error("Invalid arguments");
     }
 
-    // * old python way
-    const args = ["--lat", lat, "--lon", lon, "--year", year, "--month", month, "--day", day, "--meanTemp", meanTemp, "--meanRain", meanRain, "--meanSnow", meanSnow, "--ecoZone", ecoZone]
+    if (parseFloat(lat) === 0 || parseFloat(lon) === 0) {
+      throw new Error('Invalid arguments');
+    }
 
-    const scriptPath = 'ml/pred.py';
-    const result = await runPythonScript(scriptPath, args);
+    const url = `https://flask-hello-world-laijackylai-laijackylai-pro.vercel.app/pred?lat=${lat}&lon=${lon}&year=${year}&month=${month}&day=${day}&meanTemp=${meanTemp}&meanRain=${meanRain}&meanSnow=${meanSnow}&ecoZone=${ecoZone}`;
+    const response = await axios.get(url);
 
-    if (result.trim() === 'success') {
-      const dbOptions = {
-        fileMustExist: true,
-        // verbose: console.log
-      }
-      const db = new Database('./ml/pred.db', dbOptions);
-      db.pragma('journal_mode = WAL');
+    console.log(response)
 
-      const stmt = db.prepare('SELECT * FROM pred')
-      const rows = stmt.all();
-
+    if (response) {
       res.status(200).json({
-        "result": result,
-        "data": rows
+        "result": 'success',
+        "data": response.data
       });
-
-      db.close()
     } else {
       res.status(400).json({
-        "result": result,
+        "result": 'failed',
         "data": []
       });
     }
+
+    // * old python way
+    // const args = ["--lat", lat, "--lon", lon, "--year", year, "--month", month, "--day", day, "--meanTemp", meanTemp, "--meanRain", meanRain, "--meanSnow", meanSnow, "--ecoZone", ecoZone]
+
+    // const scriptPath = 'ml/pred.py';
+    // const result = await runPythonScript(scriptPath, args);
+
+    // if (result.trim() === 'success') {
+    //   const dbOptions = {
+    //     fileMustExist: true,
+    //     // verbose: console.log
+    //   }
+    //   const db = new Database('./ml/pred.db', dbOptions);
+    //   db.pragma('journal_mode = WAL');
+
+    //   const stmt = db.prepare('SELECT * FROM pred')
+    //   const rows = stmt.all();
+
+    //   res.status(200).json({
+    //     "result": result,
+    //     "data": rows
+    //   });
+
+    //   db.close()
+    // } else {
+    //   res.status(400).json({
+    //     "result": result,
+    //     "data": []
+    //   });
+    // }
   } catch (error) {
     console.error('Error running Python script:', error);
     res.status(500).json({

@@ -12,8 +12,6 @@ const DeckGLMap: React.FC = () => {
   const { queryData, layer, setLat, setLon, pickedFire, setPickedFire, setShowPred, predictedFire } = useQueryDatContext()
 
   useEffect(() => {
-    if (queryData.length <= 0) return
-
     if (layer === 'heat') {
       const heatMapLayer = new HeatmapLayer({
         id: 'heatmapLayer',
@@ -22,7 +20,7 @@ const DeckGLMap: React.FC = () => {
         getWeight: (d) => d.SIZE_HA,
         aggregation: 'SUM',
       });
-      setLayers(l => [...l, heatMapLayer]);
+      setLayers(l => [heatMapLayer]);
     }
 
     if (layer === 'icon') {
@@ -55,7 +53,7 @@ const DeckGLMap: React.FC = () => {
           }
         },
       });
-      setLayers(l => [...l, iconLayer]);
+      setLayers(l => [iconLayer]);
     }
   }, [queryData, layer]);
 
@@ -112,9 +110,9 @@ const DeckGLMap: React.FC = () => {
     <div className='w-full h-screen'>
       <DeckGL
         initialViewState={{
-          latitude: 60,
-          longitude: -97,
-          zoom: 3,
+          latitude: 50.42842205069528,
+          longitude: -83.93777509786482,
+          zoom: 4.25,
           bearing: 0,
           pitch: 0,
         }}

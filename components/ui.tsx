@@ -55,13 +55,19 @@ const UI: NextPage<Props> = () => {
       const response: AxiosResponse = await axios.get(`/api/nlpSearch?${queryParams}`);
       const { result, data } = response.data
       if (result.trim() === "success") {
+        console.log(data)
         setQueryData(data)
+        if (data.length === 0) {
+          alert('No data')
+        }
         // setShowData(true)
         setLoading(false)
       } else {
+        alert('No data')
         setLoading(false)
       }
     } catch (error) {
+      alert('Error: check console')
       console.error('Error:', error);
       setLoading(false)
     }
@@ -104,7 +110,7 @@ const UI: NextPage<Props> = () => {
         <div className="shadow-md rounded-xl flex flex-row">
           <input
             type="text"
-            placeholder='Search fires in Canada from 1930-2021'
+            placeholder='Search fires in Ontario from 1930-2021'
             className="p-3 rounded-s-xl text-black w-80"
             value={searchInput}
             onChange={handleInputChange}
