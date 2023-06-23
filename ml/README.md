@@ -113,6 +113,14 @@ XGBoost Regression
 
 9. Finalize the Model: After the specified number of boosting rounds is reached, or when a stopping criterion is met, XGBoost regression finalizes the model. The final prediction is the sum of predictions from all the constructed trees, each weighted by the learning rate.
 
+### How can XGBoost be ran in parallel
+
+XGBoost can be parallelized in multiple ways:
+
+- Parallelization within a tree: Operations like evaluating splitting points can be done in parallel within a single tree.
+- Parallelization across trees: Multiple trees can be built independently in parallel since they don't depend on each other's results.
+- Column subsampling: XGBoost supports feature subsampling, allowing different subsets of features to be processed independently in parallel.
+
 ### Best Params
 
 | Param            | Value | Description |

@@ -35,51 +35,51 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error("Invalid arguments");
     }
 
-    const encodedQuery = encodeURIComponent(query.replace(/"/g, ''));
-    const url = `https://flask-hello-world-laijackylai-laijackylai-pro.vercel.app/data?strategy=${strategy.replace(/"/g, '')}&query=${encodedQuery}`;
-    const response = await axios.get(url);
+    // const encodedQuery = encodeURIComponent(query.replace(/"/g, ''));
+    // const url = `https://flask-hello-world-laijackylai-laijackylai-pro.vercel.app/data?strategy=${strategy.replace(/"/g, '')}&query=${encodedQuery}`;
+    // const response = await axios.get(url);
 
-    if (response) {
-      res.status(200).json({
-        "result": 'success',
-        "data": response.data
-      });
-    } else {
-      res.status(400).json({
-        "result": 'failed',
-        "data": []
-      });
-    }
-
-    // * old python way
-    // const args = ["--strategy", strategy, "--query", query]
-
-    // const scriptPath = 'ml/nlp_search.py';
-    // const result = await runPythonScript(scriptPath, args);
-
-    // if (result.trim() === 'success') {
-    //   const dbOptions = {
-    //     fileMustExist: true,
-    //     // verbose: console.log
-    //   }
-    //   const db = new Database('./ml/query.db', dbOptions);
-    //   db.pragma('journal_mode = WAL');
-
-    //   const stmt = db.prepare('SELECT * FROM query')
-    //   const rows = stmt.all();
-
+    // if (response) {
     //   res.status(200).json({
-    //     "result": result,
-    //     "data": rows
+    //     "result": 'success',
+    //     "data": response.data
     //   });
-
-    //   db.close()
     // } else {
     //   res.status(400).json({
-    //     "result": result,
+    //     "result": 'failed',
     //     "data": []
     //   });
     // }
+
+    // * old python way
+    const args = ["--strategy", strategy, "--query", query]
+
+    const scriptPath = 'ml/nlp_search.py';
+    const result = await runPythonScript(scriptPath, args);
+
+    if (result.trim() === 'success') {
+      const dbOptions = {
+        fileMustExist: true,
+        // verbose: console.log
+      }
+      const db = new Database('./ml/query.db', dbOptions);
+      db.pragma('journal_mode = WAL');
+
+      const stmt = db.prepare('SELECT * FROM query')
+      const rows = stmt.all();
+
+      res.status(200).json({
+        "result": result,
+        "data": rows
+      });
+
+      db.close()
+    } else {
+      res.status(400).json({
+        "result": result,
+        "data": []
+      });
+    }
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({

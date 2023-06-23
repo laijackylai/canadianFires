@@ -39,52 +39,52 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error('Invalid arguments');
     }
 
-    const url = `https://flask-hello-world-laijackylai-laijackylai-pro.vercel.app/pred?lat=${lat}&lon=${lon}&year=${year}&month=${month}&day=${day}&meanTemp=${meanTemp}&meanRain=${meanRain}&meanSnow=${meanSnow}&ecoZone=${ecoZone}`;
-    const response = await axios.get(url);
+    // const url = `https://flask-hello-world-laijackylai-laijackylai-pro.vercel.app/pred?lat=${lat}&lon=${lon}&year=${year}&month=${month}&day=${day}&meanTemp=${meanTemp}&meanRain=${meanRain}&meanSnow=${meanSnow}&ecoZone=${ecoZone}`;
+    // const response = await axios.get(url);
 
-    console.log(response)
+    // console.log(response)
 
-    if (response) {
-      res.status(200).json({
-        "result": 'success',
-        "data": response.data
-      });
-    } else {
-      res.status(400).json({
-        "result": 'failed',
-        "data": []
-      });
-    }
-
-    // * old python way
-    // const args = ["--lat", lat, "--lon", lon, "--year", year, "--month", month, "--day", day, "--meanTemp", meanTemp, "--meanRain", meanRain, "--meanSnow", meanSnow, "--ecoZone", ecoZone]
-
-    // const scriptPath = 'ml/pred.py';
-    // const result = await runPythonScript(scriptPath, args);
-
-    // if (result.trim() === 'success') {
-    //   const dbOptions = {
-    //     fileMustExist: true,
-    //     // verbose: console.log
-    //   }
-    //   const db = new Database('./ml/pred.db', dbOptions);
-    //   db.pragma('journal_mode = WAL');
-
-    //   const stmt = db.prepare('SELECT * FROM pred')
-    //   const rows = stmt.all();
-
+    // if (response) {
     //   res.status(200).json({
-    //     "result": result,
-    //     "data": rows
+    //     "result": 'success',
+    //     "data": response.data
     //   });
-
-    //   db.close()
     // } else {
     //   res.status(400).json({
-    //     "result": result,
+    //     "result": 'failed',
     //     "data": []
     //   });
     // }
+
+    // * old python way
+    const args = ["--lat", lat, "--lon", lon, "--year", year, "--month", month, "--day", day, "--meanTemp", meanTemp, "--meanRain", meanRain, "--meanSnow", meanSnow, "--ecoZone", ecoZone]
+
+    const scriptPath = 'ml/pred.py';
+    const result = await runPythonScript(scriptPath, args);
+
+    if (result.trim() === 'success') {
+      const dbOptions = {
+        fileMustExist: true,
+        // verbose: console.log
+      }
+      const db = new Database('./ml/pred.db', dbOptions);
+      db.pragma('journal_mode = WAL');
+
+      const stmt = db.prepare('SELECT * FROM pred')
+      const rows = stmt.all();
+
+      res.status(200).json({
+        "result": result,
+        "data": rows
+      });
+
+      db.close()
+    } else {
+      res.status(400).json({
+        "result": result,
+        "data": []
+      });
+    }
   } catch (error) {
     console.error('Error running Python script:', error);
     res.status(500).json({

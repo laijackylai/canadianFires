@@ -152,15 +152,18 @@ if __name__ == "__main__":
     y_train = train_data[['SIZE_HA', 'CHANCE_OF_FIRE']]
     y_test = test_data[['SIZE_HA', 'CHANCE_OF_FIRE']]
 
-    model = xgb.XGBRegressor(n_estimators=1000,
-                             nthread=5,
-                             max_depth=9,
-                             learning_rate=0.1,
-                             subsample=1.0,
-                             colsample_bytree=0.8,
-                             reg_alpha=0.5,
-                             reg_lambda=0,
-                             objective="reg:squarederror")
+    model = xgb.XGBRegressor(
+        n_estimators=1000,
+        nthread=5,
+        max_depth=9,
+        learning_rate=0.1,
+        subsample=1.0,
+        colsample_bytree=0.8,
+        reg_alpha=0.5,
+        reg_lambda=0,
+        objective="reg:squarederror",
+        eval_metric="mae"
+    )
 
     # xgboost model eval metrics
     # “rmse” for root mean squared error.
@@ -171,7 +174,7 @@ if __name__ == "__main__":
 
     # * Train the model
     model.fit(X_train, y_train,
-                      eval_metric="rmse",
+                      eval_metric="mae",
                       eval_set=[(X_train, y_train),
                                 (X_test, y_test)],
                       early_stopping_rounds=50,
