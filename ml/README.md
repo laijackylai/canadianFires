@@ -48,7 +48,7 @@ ECOZ_NOM | Ecozone name (FR) associated with fire point location.
 3. The following inputs are extracted and parsed in for training, per province
 
 ``` bash
-['DATE', 'MEAN_TEMPERATURE' 'CAUSE']
+['LAT', 'LON', 'YEAR', 'MONTH', 'DAY', 'MEAN_TEMPERATURE', 'MEAN_PRECIPITATON', 'MEAN_SNOWFALL']
 ```
 
 Breaking down the causes:
@@ -66,7 +66,7 @@ Monthly Mean Temperature are provided
 The resulted output of the model will be the following two variables
 
 ``` bash
-['SIZE_HA', 'CHANCE_OF_FIRE']
+['SIZE_HA', 'CAUSE']
 ```
 
 ### Model Used
