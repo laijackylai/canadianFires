@@ -2,7 +2,7 @@
 
 ## Link
 
-Page link: [<https://laijackylai.github.io/canadianFires/>](https://vercel.com/laijackylai-pro/canadian-fires)
+Page link: [https://canadian-fires.vercel.app/](https://vercel.com/laijackylai-pro/canadian-fires)
 
 ## Descripton
 
