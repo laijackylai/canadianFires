@@ -262,7 +262,7 @@ if __name__ == "__main__":
 
     # * Train the model
     model.fit(X_train, y_train,
-                      eval_metric="rmse",
+                      eval_metric="mae",
                       eval_set=[(X_train, y_train),
                                 (X_test, y_test)],
                       early_stopping_rounds=50,
