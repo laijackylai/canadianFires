@@ -1,0 +1,1028 @@
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041             59.963   -128.172  1953      5  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028             59.318   -132.172  1950      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026             59.876   -131.922  1950      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097             59.760   -132.808  1951      7  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116             59.434   -126.172  1952      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME           1
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE        1010
+FIRE_TYPE          0
+MORE_INFO          0
+CFS_REF_ID         0
+CFS_NOTE1          0
+CFS_NOTE2          0
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF           0
+ECOZ_NAME          0
+ECOZ_NOM           0
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041             59.963   -128.172  1953      5  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028             59.318   -132.172  1950      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026             59.876   -131.922  1950      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097             59.760   -132.808  1951      7  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116             59.434   -126.172  1952      6  ...                       2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME           1
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE        1010
+FIRE_TYPE          0
+MORE_INFO          0
+CFS_REF_ID         0
+CFS_NOTE1          0
+CFS_NOTE2          0
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF           0
+ECOZ_NAME          0
+ECOZ_NOM           0
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID FIRENAME  LATITUDE  LONGITUDE  YEAR  MONTH  ...  CFS_NOTE1 CFS_NOTE2             ACQ_DATE SRC_AGY2 ECOZONE  ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041      NaN    59.963   -128.172  1953      5  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028      NaN    59.318   -132.172  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026      NaN    59.876   -131.922  1950      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097      NaN    59.760   -132.808  1951      7  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116      NaN    59.434   -126.172  1952      6  ...        NaN       NaN  2020-05-05 00:00:00       BC      12        12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE      LONGITUDE           YEAR          MONTH            DAY       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  423831.000000  4.238310e+05  423831.000000
+mean   211915.000000      51.895936    -104.253547    1990.464784       6.585818      15.441048  3.162710e+02       9.376594
+std    122349.615308       4.467770      20.412661      47.872423       1.675279       8.983980  5.617050e+03       3.631528
+min         0.000000       0.000000    -166.044000    -999.000000       0.000000       0.000000  0.000000e+00       0.000000
+25%    105957.500000      49.133700    -120.112350    1979.000000       5.000000       8.000000  1.000000e-01       6.000000
+50%    211915.000000      51.023000    -114.503000    1991.000000       7.000000      15.000000  1.000000e-01       9.000000
+75%    317872.500000      54.630289     -88.303603    2005.000000       8.000000      23.000000  1.000000e+00      14.000000
+max    423830.000000      70.000000     116.188000    2021.000000      12.000000      31.000000  1.050000e+06      15.000000
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
+Head of the dataset:
+   FID SRC_AGENCY      FIRE_ID  ... ECOZ_REF          ECOZ_NAME            ECOZ_NOM
+0    0         BC  1953-G00041  ...       12  Boreal Cordillera  CordillCre boreale
+1    1         BC  1950-R00028  ...       12  Boreal Cordillera  CordillCre boreale
+2    2         BC  1950-G00026  ...       12  Boreal Cordillera  CordillCre boreale
+3    3         BC  1951-R00097  ...       12  Boreal Cordillera  CordillCre boreale
+4    4         BC  1952-G00116  ...       12  Boreal Cordillera  CordillCre boreale
+
+[5 rows x 27 columns]
+
+Info of the dataset:
+None
+
+Description of the dataset:
+                 FID       LATITUDE  ...       SIZE_HA        ECOZONE
+count  423831.000000  423831.000000  ...  4.238310e+05  423831.000000
+mean   211915.000000      51.895936  ...  3.162710e+02       9.376594
+std    122349.615308       4.467770  ...  5.617050e+03       3.631528
+min         0.000000       0.000000  ...  0.000000e+00       0.000000
+25%    105957.500000      49.133700  ...  1.000000e-01       6.000000
+50%    211915.000000      51.023000  ...  1.000000e-01       9.000000
+75%    317872.500000      54.630289  ...  1.000000e+00      14.000000
+max    423830.000000      70.000000  ...  1.050000e+06      15.000000
+
+[8 rows x 8 columns]
+
+Missing values count:
+FID                0
+SRC_AGENCY         0
+FIRE_ID          165
+FIRENAME      362544
+LATITUDE           0
+LONGITUDE          0
+YEAR               0
+MONTH              0
+DAY                0
+REP_DATE        3713
+ATTK_DATE     395091
+OUT_DATE      210739
+DECADE             0
+SIZE_HA            0
+CAUSE            241
+PROTZONE      334473
+FIRE_TYPE     200238
+MORE_INFO     381086
+CFS_REF_ID         0
+CFS_NOTE1     407285
+CFS_NOTE2     422962
+ACQ_DATE       10605
+SRC_AGY2           0
+ECOZONE            0
+ECOZ_REF         294
+ECOZ_NAME        294
+ECOZ_NOM         294
+dtype: int64
+
